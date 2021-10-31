@@ -1,0 +1,8 @@
+.tr-edit{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  border-bottom: 2px solid rgb(216, 211, 211);
+}
+.tr-edit td{
+border-right: 2px solid rgb(216, 211, 211);
+}

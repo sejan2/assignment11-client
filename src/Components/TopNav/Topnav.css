@@ -1,0 +1,13 @@
+.navs a{
+    font-size: 20px;
+    margin-left: 30px;
+    float: right;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.navs-brand{
+    float: left;
+    font-size: 30px;
+    margin-top: 15px;
+    text-decoration: none;
+} 

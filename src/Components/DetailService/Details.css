@@ -1,0 +1,11 @@
+.register-volunteer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register-volunteer form input, textarea{
+    width: 70%;
+    height: 2.3em;
+    margin-bottom: 10px;
+}
