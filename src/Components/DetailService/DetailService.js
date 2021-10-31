@@ -37,7 +37,7 @@ const DetailService = () => {
         const newUser = { Uname: name, email: email, desc: des, image: image, number: number, service_id: service_id, status: pending }
         console.log(newUser)
 
-        fetch('https://murmuring-gorge-93134.herokuapp.com/services/serve', {
+        fetch('https://murmuring-gorge-93134.herokuapp.com/serve', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
