@@ -6,14 +6,30 @@ import { Col, Row } from 'react-bootstrap';
 const ManageOrder = () => {
     // const { user } = useAuth();
     const [AllOrder, setAllOrder] = useState([])
+    const [reload, setReload] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:5000/myOrder')
+        fetch('https://murmuring-gorge-93134.herokuapp.com/myOrder')
             .then(res => res.json())
             .then(data => {
                 setAllOrder(data)
                 console.log(data)
             })
-    }, [])
+    }, [reload])
+    const handleUpdate = (_id) => {
+        const confirm = window.confirm('are uou want to update')
+        if (confirm) {
+            fetch(`https://murmuring-gorge-93134.herokuapp.com/myOrder/${_id}`, {
+                method: "put",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount === 1) {
+                        setReload(!reload)
+                    }
+
+                })
+        }
+    }
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete')
@@ -59,7 +75,7 @@ const ManageOrder = () => {
                                 <td className="mb-2"><img className="" src={p.image} alt="" style={{ width: "90px", height: "40px" }} /></td>
                                 <td className="text-muted">{p.Uname}</td>
                                 <td className="text-muted">{p.service_id}</td>
-                                <td className="">*{p.status} <button >update</button></td>
+                                <td className="">*{p.status} <button onClick={() => handleUpdate(p._id)}>update</button></td>
                                 <td className="text-muted"><button onClick={() => handleDelete(p._id)}>delete</button></td>
                             </tr>
                         ))

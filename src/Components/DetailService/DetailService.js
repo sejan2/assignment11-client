@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
+
 import useFirebase from '../../Hooks/useFirebase';
 import './Details.css'
 
@@ -37,7 +37,7 @@ const DetailService = () => {
         const newUser = { Uname: name, email: email, desc: des, image: image, number: number, service_id: service_id, status: pending }
         console.log(newUser)
 
-        fetch('http://localhost:5000/serve', {
+        fetch('https://murmuring-gorge-93134.herokuapp.com/serve', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const DetailService = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Your Order Successful.');
+                    alert('Place to Your order.');
 
                 }
                 e.target.reset()
@@ -95,11 +95,6 @@ const DetailService = () => {
                                 <input ref={pendingRef} type="hidden" value="pending" id="lname" />
                                 <input ref={serviceIDRef} type="hidden" value={course._id} id="lname" />
                                 <input type="submit" value="Place Order" />
-                                <p className="mt-2">
-                                    <NavLink as={Link} to="/myorder" className="text-decoration-none">
-                                        <button>MyOrder</button>
-                                    </NavLink>
-                                </p>
                             </form>
                         </div>
                     </Container>
