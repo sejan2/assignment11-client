@@ -2,7 +2,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AddService from './Components/AddService/AddService';
-
 import Blogs from './Components/Blogs/Blogs';
 import Contact from './Components/Contact/Contact';
 import DetailService from './Components/DetailService/DetailService';

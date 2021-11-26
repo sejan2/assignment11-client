@@ -8,7 +8,7 @@ const ManageOrder = () => {
     const [AllOrder, setAllOrder] = useState([])
     const [reload, setReload] = useState(true)
     useEffect(() => {
-        fetch('/myOrder')
+        fetch('https://murmuring-gorge-93134.herokuapp.com/myOrder')
             .then(res => res.json())
             .then(data => {
                 setAllOrder(data)
